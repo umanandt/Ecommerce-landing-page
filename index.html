@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&family=Lexend+Deca:wght@100;200;300;400;500;600;700;900&family=Manrope:wght@200;400&family=Nunito:wght@200;300;500;600;700;800;900&family=Outfit:wght@300;400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Frontend Mentor | E-commerce product page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        width: 100%;
+        height: 100%;
+        background-color: hsl(220, 13%, 13%);
+      }
+
+      .Big-container {
+        position: absolute;
+        width: 83%;
+        height: 90%;
+        background-color: hsl(0, 0%, 100%);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    
+      }
+
+      .big-container-shadow {
+        opacity: 0.10;
+      }
+
+      .overshadowContainer {
+        position: absolute;
+        width: 35%;
+        height: 90%;
+        background-color:  hsl(0, 0%, 100%);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        visibility: hidden; 
+      }
+
+      .shadow-images {
+        position: absolute;
+        width: 100%;
+        height: 85%;
+        left: 10px;
+        display: flex;
+        visibility: hidden;
+      
+      }
+      .close{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        right: 39%;
+        top:30px;
+        cursor: pointer;
+        visibility: hidden;
+      }
+
+      .close img{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+      }
+      .arrow-left {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 50%;
+        left: 75px;
+        z-index: 1;
+      }
+
+      .arrow-left img {
+        position: absolute;
+        width: 45%;
+        height: 40%;
+      }
+
+      .shadow-image-Container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        top: 10%;
+        left: 10px;
+      }
+
+      .shadow-image-Container img {
+        position: absolute;
+        width: 70%;
+        height: 70%;
+        border-radius: 15px;
+      }
+
+      .arrow-right {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 50%;
+        right: 100px;
+      }
+
+      .arrow-right img {
+        position: absolute;
+        width: 45%;
+        height: 40%;
+      }
+
+      .header {
+        position: absolute;
+        width: 80%;
+        height: 15%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        left: 10%;
+        right: 10%;
+      }
+
+      .menu-links {
+        position: relative;
+        width: 50%;
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        color: hsl(219, 9%, 45%);
+        top: 13px;
+      }
+
+      .menu-links ul {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
+
+      .menu-links li {
+        list-style: none;
+      }
+
+      .menu-links li:hover {
+        color: black;
+        font-size: 20px;
+      }
+
+      .profile-cart {
+        position: relative;
+        width: 20%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      .profile {
+        position: relative;
+        width: 20%;
+        height: 40%;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+      }
+
+      .profile img {
+        position: relative;
+        width: 85%;
+        height: 80%;
+      }
+
+
+      .addedValue{
+        position: absolute;
+        left: 80px;
+        bottom: 23px;
+        width: 25px;
+        height: 25px;
+        background-color: hsl(26, 100%, 55%);
+        color: hsl(0, 0%, 100%);
+        text-align: center;
+        border-radius: 50px;
+      }
+
+      .line {
+        position: absolute;
+        width: 78%;
+        height: 0.079px;
+        background-color: hsl(219, 9%, 45%);
+        border-radius: 20px;
+        top: 15%;
+        left: 10%;
+        right: 10%;
+      }
+
+
+      .small-container {
+        position: absolute;
+        width: 75%;
+        height: 70%;
+
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+      }
+
+      .left-images {
+        position: absolute;
+        width: 50%;
+        height: 111%;
+        left: 0px;
+      }
+      .image-Container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        top: 10%;
+      }
+
+      .image-Container img {
+        position: absolute;
+        width: 70%;
+        height: 70%;
+        border-radius: 15px;
+      }
+
+      .thumbnails {
+        position: absolute;
+        width: 80%;
+        height: 14%;
+        left: 12%;
+        right: 12%;
+        display: flex;
+        bottom: 0;
+      }
+      
+      .thumb-1 {
+        position: relative;
+        width: 25%;
+        height: 30%;
+      }
+
+      .thumb-1 img {
+        position: absolute;
+        width: 100px;
+        height: 90px;
+        border-radius: 15px;
+      }
+
+      .thumb-1 img:hover {
+        opacity: 0.33;
+        border: 3px solid hsl(26, 100%, 55%);
+      }
+
+      .thumb-2 {
+        position: relative;
+        width: 25%;
+        height: 30%;
+      }
+
+      .thumb-2 img {
+        position: absolute;
+        width: 100px;
+        height: 90px;
+        border-radius: 15px;
+      }
+
+      .thumb-2 img:hover {
+        opacity: 0.33;
+        border: 3px solid hsl(26, 100%, 55%);
+      }
+
+      .thumb-3 {
+        position: relative;
+        width: 25%;
+        height: 30%;
+      }
+
+      .thumb-3 img {
+        position: absolute;
+        width: 100px;
+        height: 90px;
+        border-radius: 15px;
+      }
+
+      .thumb-3 img:hover {
+        opacity: 0.33;
+        border: 3px solid hsl(26, 100%, 55%);
+      }
+
+      .thumb-4 {
+        position: relative;
+        width: 25%;
+        height: 30%;
+      }
+
+      .thumb-4 img {
+        position: absolute;
+        width: 100px;
+        height: 90px;
+        border-radius: 15px;
+      }
+
+      .thumb-4 img:hover {
+        opacity: 0.33;
+        border: 3px solid hsl(26, 100%, 55%);
+      }
+
+      .right-info {
+        position: absolute;
+        width: 50%;
+        height: 110%;
+        right: 0px;
+        display: flex;
+        flex-direction: column;
+        top: 13%;
+      }
+
+      .title {
+        position: relative;
+        font-family: "Kumbh Sans", sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+        color: hsl(26, 100%, 55%);
+        top: 12%;
+      }
+
+      .description-heading {
+        position: relative;
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 24.5px;
+        top: 9%;
+      }
+
+      .description {
+        position: relative;
+        top: 20px;
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        top: 9%;
+      }
+
+      .newPrice {
+        position: relative;
+        top: 29px;
+        width: 80%;
+        height: 20%;
+        display: flex;
+        flex-direction: row;
+        top: 8%;
+      }
+
+      .newPrice p {
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 30px;
+        font-weight: 900;
+      }
+
+      .newPrice span {
+        position: relative;
+        font-family: "Kumbh Sans", sans-serif;
+        color: hsl(26, 100%, 55%);
+        background-color: hsl(223, 64%, 98%);
+        left: 20px;
+        top: 6px;
+        font-size: 20px;
+        font-weight: 900;
+        top: 8%;
+      }
+
+      .old-price {
+        position: relative;
+        bottom: 50px;
+        font-family: "Kumbh Sans", sans-serif;
+        bottom: 60px;
+        bottom: 6%;
+      }
+
+      .old-price::after {
+        content: "";
+        position: absolute;
+        width: 14%;
+        height: 2%;
+        bottom: 35px;
+        background-color: hsl(219, 9%, 45%);
+      }
+      .AddToCart {
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 8%;
+        bottom: 35px;
+      }
+      .CalcProduct {
+        position: relative;
+        width: 50%;
+        left: 0;
+        display: flex;
+        justify-content: cen;
+      }
+
+      .subtract {
+        position: relative;
+        width: 25%;
+        height: 100%;
+        background-color: hsl(223, 64%, 98%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Kumbh Sans", sans-serif;
+        font-weight: 700;
+        font-size: 30px;
+        border-radius: 10px;
+        color: hsl(26, 100%, 55%);
+      }
+
+      .CalcProduct input {
+        position: relative;
+        width: 20%;
+        height: 90%;
+        border-radius: 10px;
+        text-align: center;
+        border: 0;
+      }
+
+      .CalcProduct .add {
+        position: relative;
+        width: 25%;
+        height: 100%;
+        background-color: hsl(223, 64%, 98%);
+        text-align: center;
+        font-family: "Kumbh Sans", sans-serif;
+        font-weight: 900;
+        font-family: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        left: 5px;
+        color: hsl(26, 100%, 55%);
+      }
+
+      .AddToCart button {
+        position: relative;
+        width: 50%;
+        background-color: hsl(26, 100%, 55%);
+        color: hsl(0, 0%, 100%);
+        right: 0;
+        border-radius: 10px;
+        font-family: "Kumbh Sans", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        box-shadow: 6px 6px 5px hsl(25, 100%, 94%);
+        border: none;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      button img {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        bottom: 10px;
+      }
+
+      .cart-details {
+        position: relative;
+        width: 24%;
+        height: 29%;
+        background-color: hsl(0, 0%, 100%);
+        display: flex;
+        flex-direction: column;
+        float: right;
+        top: 15%;
+        right: 5%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        box-shadow: 8px 8px 8px 1px hsl(219, 9%, 45%);
+        font-family: "Kumbh Sans", sans-serif;
+        padding: 15px;
+        z-index: 6;
+        visibility: hidden;
+
+      }
+      .cart-name {
+        position: relative;
+        width: 100%;
+        height: 10%;
+        left: 0;
+        top: 5%;
+      }
+      .cart-money {
+        position: relative;
+        width: 100%;
+        height: 15%;
+        top: 12%;
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      .product-image {
+        position: relative;
+        width: 25%;
+        height: 8vh;
+        font-family: "Kumbh Sans", sans-serif;
+        font-weight: 900;
+      }
+
+      .product-image img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      .cart-money p {
+        position: relative;
+        width: 55%;
+        height: 8vh;
+        font-size: 17px;
+        left: 2%;
+      }
+
+      .cart-money span {
+        position: absolute;
+        width: 60%;
+        height: 8vh;
+        font-size: 17px;
+        left: 26%;
+        top: 50px;
+      }
+
+      .delete-cart {
+        position: relative;
+        width: 20%;
+        height: 100%;
+        left: 5%;
+        top: 55%;
+      }
+
+      .delete-cart img {
+        position: relative;
+        width: 50%;
+        height: 100%;
+      }
+      .checkout {
+        position: relative;
+        top: 50%;
+        width: 100%;
+      }
+
+      .checkout .btn-danger {
+        position: relative;
+        width: 100%;
+        background-color: hsl(26, 100%, 55%);
+        border: none;
+        box-shadow: 8px 8px 8px 1px hsl(219, 9%, 45%);
+      }
+      
+
+      .thumbOpa{
+        opacity: 0.33;
+      }
+      
+      @media screen and (max-width: 650px) {
+        body {
+        width: 100vw;
+        height: 100vh;
+        background-color: hsl(0, 0%, 100%);
+      }
+
+      .Big-container {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: hsl(0, 0%, 100%);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    
+      }
+
+      .big-container-shadow {
+        opacity: 0.10;
+      }
+        .header {
+        position: absolute;
+        width: 80%;
+        height: 15%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        left: 10%;
+        right: 10%;
+      }
+
+      .mobileMenu{
+        position: relative;
+        width: 25%;
+        height: 24%;
+        left: 40px;
+        top : 6%;
+      }
+
+      .logo{
+        position: relative;
+        left: 33px;
+        top: 4.5px;
+      }
+
+      .menu-links {
+        position: absolute;
+        width: 120%;
+        height: 100vh;
+        top: 70%;
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 28px;
+        font-weight: 500;
+        color: hsl(219, 9%, 45%);
+        background-color: hsl(0, 0%, 100%);
+        z-index: 5;
+        left: -25px;
+        cursor: pointer;
+       display: none;     
+      }
+
+      .menuAnimationIn{
+        animation: menuslide .5s ease-in-out;
+      }
+
+      .menuAnimationOut{
+        animation: menuBack 1.9s ease-in-out;
+      }
+
+
+      @keyframes menuslide{
+        0%{
+          left: -25px
+        }
+
+        
+        100%{
+        
+          left: 25px;
+        }
+      }
+
+
+      @keyframes menuBack{
+        0%{
+          left: -25px;
+        } 
+        25%{
+          left: -5px;
+        }   
+        50%{
+          left: 12px;
+        }
+       100%{
+          left: 25px;
+        }
+      }
+      .menu-links ul {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content:space-around;
+        top: 20px;
+        padding: 5px;
+        cursor: pointer;
+        left: 12px;
+      }
+
+      .menu-links li {
+        list-style: none;
+        padding-top: 26px;
+        cursor: pointer;
+      
+      }
+
+      .menu-links li:hover {
+        color: black;
+        font-size: 20px;
+        font-weight: 900;
+      }
+
+      .profile-cart {
+        position: relative;
+        width: 20%;
+        right: 15px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      .profile {
+        position: relative;
+        width: 32%;
+        height: 40%;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        top: 4px;
+      }
+
+      .profile img {
+        position: relative;
+        width: 100%;
+        height: 90%;
+      }
+
+
+      .addedValue{
+        position: absolute;
+        left: 7px;
+        bottom: 23px;
+        width: 25px;
+        height: 25px;
+        background-color: hsl(26, 100%, 55%);
+        color: hsl(0, 0%, 100%);
+        text-align: center;
+        border-radius: 50px;
+      }
+
+
+      .small-container {
+        position: absolute;
+        width: 100%;
+        height: 70%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .left-images {
+        position: absolute;
+        width: 100vw;
+        height: 60vh;
+        top: -20px;
+        
+      }
+      .image-Container {
+        position: absolute;
+        width: 100vw;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        top: 10%;
+      }
+
+      .image-Container img {
+        position: absolute;
+        width: 85%;
+        height: 75%;
+        border-radius: 15px;
+      }
+
+      .thumbnails {
+        position: absolute;
+        width: 70%;
+        height: 14%;
+        left: 9%;
+        right: 12%;
+        display: flex;
+        bottom: 30px;
+        margin: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        display: none;
+      }
+      
+     
+      .right-info {
+        position: absolute;
+        width: 95%;
+        height: 70%;
+        right: 0px;
+        display: flex;
+        flex-direction: column;
+        top: 60%;
+        padding: 10px;
+      }
+
+      .title {
+        position: relative;
+        font-family: "Kumbh Sans", sans-serif;
+        font-weight: 900;
+        font-size: 12px;
+        color: hsl(26, 100%, 55%);
+        top: -8%;
+      }
+
+      .description-heading {
+        position: relative;
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 5.5px;
+        top: -10%;
+      }
+
+      .description {
+        position: relative;
+        top: 16px;
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        top: -12%;
+      }
+
+      .newPrice {
+        position: relative;
+        width: 80%;
+        height: 20%;
+        display: flex;
+        flex-direction: row;
+        top: -17%;
+      }
+
+      .newPrice p {
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 20px;
+        font-weight: 900;
+      }
+
+      .newPrice span {
+        position: relative;
+        font-family: "Kumbh Sans", sans-serif;
+        color: hsl(26, 100%, 55%);
+        background-color: hsl(223, 64%, 98%);
+        left: 20px;
+        top: 6px;
+        font-size: 15px;
+        font-weight: 900;
+        top: -9%;
+      }
+
+      .old-price {
+        position: relative;
+        bottom: 50px;
+        font-family: "Kumbh Sans", sans-serif;
+        bottom: 60px;
+        top: -12%;
+        display: none;
+      }
+
+      .old-price::after {
+        content: "";
+        position: absolute;
+        width: 23%;
+        height: 2%;
+        bottom: 35px;
+        background-color: hsl(219, 9%, 45%);
+      }
+      .AddToCart {
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 12%;
+        bottom: 65px;
+        padding: 5px;
+      }
+      .CalcProduct {
+        position: relative;
+        width: 50%;
+        left: 0;
+        display: flex;
+        justify-content: cen;
+      }
+      button img {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        bottom: 10px;
+        display: none;
+      }
+
+      .cart-details {
+        position: relative;
+        width: 90%;
+        height: 40%;
+        background-color: hsl(0, 0%, 100%);
+        display: flex;
+        flex-direction: column;
+        float: right;
+        top: 15%;
+        right: 5%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        box-shadow: 8px 8px 8px 1px hsl(219, 9%, 45%);
+        font-family: "Kumbh Sans", sans-serif;
+        padding: 15px;
+        z-index: 3;
+       display: none;
+      }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="Big-container ">
+      <div class="header">
+        <div class="logo">
+          <div class="logo-container">
+            <img src="./images/logo.svg" alt="" />
+          </div>
+        </div>
+        <div class="menu-links">
+          <ul>
+            <li>Collection</li>
+            <li>Men</li>
+            <li>Women</li>
+            <li>About</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+        <div class="profile-cart">
+          <div class="addCart">
+            <img src="./images/icon-cart.svg" alt="" />
+          </div>
+          <span class="addedValue"></span>
+
+          <div class="profile">
+            <img src="./images/image-avatar.png" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="line"></div>
+
+      <div class="cart-details">
+        <div class="cart-name">Cart</div>
+        <div class="cart-money">
+          <div class="product-image">
+            <img src="./images/image-product-1-thumbnail.jpg" alt="" />
+          </div>
+          <p>Fall Limited Edition Sneakers</p>
+          <span class="finalValue"></span>
+
+          <div class="delete-cart">
+            <img src="./images/icon-delete.svg" alt="" class="deleteValue" />
+          </div>
+        </div>
+
+        <div class="checkout">
+          <button type="button" class="btn btn-danger">Checkout</button>
+        </div>
+      </div>
+
+      <div class="small-container">
+        <div class="left-images">
+          <div class="image-Container">
+            <img src="./images/image-product-1.jpg" />
+          </div>
+
+          <div class="thumbnails">
+            <div class="thumb-1  lightBox-option">
+              <img src="./images/image-product-1-thumbnail.jpg" />
+            </div>
+            <div class="thumb-2  lightBox-option">
+              <img src="./images/image-product-2-thumbnail.jpg" />
+            </div>
+
+            <div class="thumb-3  lightBox-option">
+              <img src="./images/image-product-3-thumbnail.jpg"/>
+            </div>
+
+            <div class="thumb-4  lightBox-option">
+              <img src="./images/image-product-4-thumbnail.jpg"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-info">
+          <div class="title"><p>SNEAKER COMPANY</p></div>
+          <div class="description-heading">
+            <h1>Fall Limited Edition Sneakers</h1>
+          </div>
+          <div class="description">
+            <p>
+              These low-profile sneakers are your perfect casual wear companion.
+              Featuring a durable rubber outer sole, they’ll withstand
+              everything the weather can offer.
+            </p>
+          </div>
+          <div class="newPrice">
+            <p>$125.00</p>
+            <span>50%</span>
+          </div>
+          <div class="old-price"><p>$250.00</p></div>
+
+          <div class="AddToCart">
+            <div class="CalcProduct">
+              <div class="subtract">-</div>
+              <input type="number" class="inputValue" placeholder="0"/>
+              <div class="add">+</div>
+            </div>
+            <button type="button" class="btn btn-success cartButton">
+              <div class="button-cart">
+                <img src="./images/cart-73-xxl.png" alt="" />
+              </div>
+              Add To Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="close">
+      <img src="./images/icon-close.svg" alt="">
+    </div>
+
+    <div class="overshadowContainer">  
+      <div class="shadow-images">
+        <div class="arrow-left">
+          <img src="./images/icon-previous.svg" alt="" />
+        </div>
+        <div class="shadow-image-Container">
+          <img src="./images/image-product-1.jpg" alt="" class="lightBox" />
+        </div>
+        <div class="arrow-right">
+          <img src="./images/icon-next.svg" alt="" />
+        </div>
+
+        <div class="thumbnails">
+
+          <div class="thumb-1 changeOpacity"><img src="./images/image-product-1-thumbnail.jpg" /></div>
+          <div class="thumb-2 changeOpacity"><img src="./images/image-product-2-thumbnail.jpg"  /></div>
+          <div class="thumb-3 changeOpacity"><img src="./images/image-product-3-thumbnail.jpg" /></div>
+          <div class="thumb-4 changeOpacity"><img src="./images/image-product-4-thumbnail.jpg" /></div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mobileMenu">
+      <img src="./images/icon-menu.svg" alt="">
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Umanand Tripathi</a>.
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
